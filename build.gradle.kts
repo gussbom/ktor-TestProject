@@ -22,6 +22,10 @@ repositories {
     mavenCentral()
 }
 
+tasks.create("stage"){
+    dependsOn("installDist")
+}
+
 dependencies {
     implementation("io.ktor:ktor-server-core-jvm")
     implementation("io.ktor:ktor-server-content-negotiation-jvm")
@@ -39,6 +43,7 @@ dependencies {
     implementation("io.ktor:ktor-server-auth:$ktor_version")
     implementation("io.ktor:ktor-server-auth-jvm")
     implementation("io.ktor:ktor-server-auth-jwt:$ktor_version")
+    implementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
     implementation("org.jetbrains.exposed", "exposed-dao", "0.44.0")
     implementation("org.jetbrains.exposed", "exposed-jdbc", "0.44.0")
 }
